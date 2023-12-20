@@ -4,7 +4,7 @@ import java.io.IOException;
 
 /*
  * Maven test example.
- * Copyright (C) 2015 Fabio Pirola <fabio@pirola.org>
+ * Copyright (C) 2015 Fabio Pirola &lt;fabio@pirola.org&gt;
 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -24,7 +24,8 @@ import java.io.IOException;
 
 /**
  * Test main class.
- * @author Fabio Pirola <fabio@pirola.org>
+ *
+ * @author Fabio Pirola &lt;fabio@pirola.org&gt;
  * @version 1.0
  * @since 2015-07-15
  */
@@ -34,6 +35,7 @@ public final class MavenExample {
 
     /**
      * Constructor.
+     *
      * @since 2015-07-15
      */
     private MavenExample() {
@@ -42,20 +44,22 @@ public final class MavenExample {
 
     /**
      * Main class.
+     *
      * @since 2015-07-15
      * @param args
-     *            Arguments.
+     *             Arguments.
      * @throws IOException IO error occurred (read MANIFEST file).
      */
     public static void main(final String[] args) throws IOException {
         System.out.println("Begin "
-            + ReadManifest.getBuildInfo(CLASS_NAME));
+                + ReadManifest.getBuildInfo(CLASS_NAME));
         System.out.println(getGreeting());
         ReadManifest.printAllAttributes();
     }
 
     /**
      * Create and get greeting.
+     *
      * @since 2015-07-15
      * @return Greeting.
      */

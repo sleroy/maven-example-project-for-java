@@ -11,7 +11,8 @@ import java.util.jar.Manifest;
 
 /**
  * Read manifest information.
- * @author Fabio Pirola <fabio@pirola.org>
+ *
+ * @author Fabio Pirola &lt;fabio@pirola.org&gt;
  * @version 2.0
  * @since 2015-07-15
  */
@@ -23,6 +24,7 @@ public final class ReadManifest {
 
     /**
      * Constructor.
+     *
      * @since 2015-07-15
      */
     private ReadManifest() {
@@ -30,12 +32,13 @@ public final class ReadManifest {
 
     /**
      * Return program version and build information.
+     *
      * @since 2015-07-15
      * @param programName
-     *            Program name.
+     *                    Program name.
      * @return String with program version and build information.
      * @throws IOException
-     *             Error on opening Manifest file
+     *                     Error on opening Manifest file
      */
     public static String getBuildInfo(final String programName)
             throws IOException {
@@ -47,15 +50,16 @@ public final class ReadManifest {
 
     /**
      * Return main attributes.
+     *
      * @since 2015-11-30
      * @return Main attributes.
      * @throws IOException
-     *             Error on opening Manifest file.
+     *                     Error on opening Manifest file.
      */
     public static Map<String, String> getMainAttributes() throws IOException {
         Map<String, String> mainAttributes = new HashMap<>();
-        try (JarFile jar =
-                new JarFile(System.getProperty("java.class.path"));) {
+        String classpath = System.getProperty("java.class.path");
+        try (JarFile jar = new JarFile(classpath);) {
             final Manifest manifest = jar.getManifest();
             final Attributes attributes = manifest.getMainAttributes();
 
@@ -69,16 +73,17 @@ public final class ReadManifest {
 
     /**
      * Return other attributes.
+     *
      * @since 2015-11-30
      * @return Other attributes.
      * @throws IOException
-     *             Error on opening Manifest file
+     *                     Error on opening Manifest file
      */
     public static Map<String, Map<String, String>> getOtherAttributes()
             throws IOException {
         Map<String, Map<String, String>> otherAttributes = new HashMap<>();
-        try (JarFile jar =
-                new JarFile(System.getProperty("java.class.path"));) {
+        String classpath = System.getProperty("java.class.path");
+        try (JarFile jar = new JarFile(classpath);) {
             final Manifest manifest = jar.getManifest();
 
             final Map<String, Attributes> mapAttrs = manifest.getEntries();
@@ -97,9 +102,10 @@ public final class ReadManifest {
 
     /**
      * Print all manifest attributes.
+     *
      * @since 2015-07-15
      * @throws IOException
-     *             Error on opening Manifest file
+     *                     Error on opening Manifest file
      */
     public static void printAllAttributes() throws IOException {
         Map<String, String> mainAttributes = getMainAttributes();

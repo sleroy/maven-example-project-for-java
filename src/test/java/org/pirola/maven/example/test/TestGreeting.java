@@ -2,7 +2,7 @@ package org.pirola.maven.example.test;
 
 /*
  * Maven test example.
- * Copyright (C) 2015 Fabio Pirola <fabio@pirola.org>
+ * Copyright (C) 2015 Fabio Pirola &lt;fabio@pirola.org&gt;
 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -26,7 +26,8 @@ import junit.framework.TestSuite;
 
 /**
  * Test main class.
- * @author Fabio Pirola <fabio@pirola.org>
+ *
+ * @author Fabio Pirola &lt;fabio@pirola.org&gt;
  * @version 1.0
  * @since 2015-07-15
  */
@@ -34,9 +35,10 @@ public class TestGreeting extends TestCase {
 
     /**
      * Constructor.
+     *
      * @since 2015-07-15
      * @param testName
-     *            Name of the test case.
+     *                 Name of the test case.
      */
     public TestGreeting(final String testName) {
         super(testName);
@@ -44,6 +46,7 @@ public class TestGreeting extends TestCase {
 
     /**
      * Create test suite.
+     *
      * @since 2015-07-15
      * @return The suite of tests being tested.
      */
@@ -53,6 +56,7 @@ public class TestGreeting extends TestCase {
 
     /**
      * Test get greeting.
+     *
      * @since 2015-07-15
      */
     public void testGetGreeting() {
