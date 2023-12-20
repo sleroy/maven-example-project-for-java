@@ -1,0 +1,20 @@
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name="maven-example-project-for-java"
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    versionCatalogs {
+        libs {
+            from(files("./gradle/libs.version.toml"))
+        }
+    }
+}

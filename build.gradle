@@ -1,0 +1,71 @@
+
+plugins {
+    id 'application'
+    id 'java'
+}
+
+
+project.plugins.each {
+   println it
+}
+
+
+group=GROUP_ID
+version=VERSION
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+    withJavadocJar()
+    withSourcesJar()
+
+}
+
+
+
+configurations {
+    asciidoclet
+}
+
+dependencies {
+    asciidoclet 'org.asciidoctor:asciidoclet:1.+'
+}
+
+tasks.register('configureJavadoc') {
+    doLast {
+        javadoc {
+            options.doclet = 'org.asciidoctor.Asciidoclet'
+            options.docletpath = configurations.asciidoclet.files.toList()
+        }
+    }
+}
+
+javadoc {
+    dependsOn configureJavadoc
+}
+
+
+
+tasks.register('uberJar', Jar) {
+    archiveClassifier = 'uber'
+
+    from sourceSets.main.output
+
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }
+}
+
+dependencies {
+    testImplementation libs.bundles.junit
+}
+
+
+application {
+    mainClass = 'org.pirola.maven.example.MavenExample'
+}
+
+

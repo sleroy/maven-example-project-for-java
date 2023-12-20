@@ -1,0 +1,11 @@
+[versions]
+junit = "4.12"
+
+[libraries]
+junit_lib = { module = "junit:junit", version.ref = "junit" }
+
+[bundles]
+junit = ["junit_lib"]
+
+[plugins]
+#versions = { id = "com.github.ben-manes.versions", version = "0.45.0" }
